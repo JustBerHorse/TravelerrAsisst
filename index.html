@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TravelerAssist</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
 <script>tailwind.config = { darkMode: 'class' }</script>
-<style>
-  #map { height: 400px; width: 100%; }
-</style>
+<style>#map { height: 400px; width: 100%; }</style>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -17,7 +14,7 @@
   <div class="max-w-6xl mx-auto flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
     <h1 class="text-2xl font-bold flex-shrink-0">TravelerAssist</h1>
 
-    <form id="searchForm" class="flex flex-grow max-w-md" autocomplete="off">
+    <form id="searchForm" class="flex flex-grow max-w-md">
       <input
         type="text"
         id="searchInput"
@@ -37,7 +34,7 @@
         <li><a href="#car-rental" class="hover:underline">Araçlar</a></li>
         <li><a href="#map" class="hover:underline">Harita</a></li>
       </ul>
-      <button id="toggleDark" class="ml-4 px-3 py-1 rounded text-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600 transition" aria-label="Tema Değiştir">
+      <button id="toggleDark" class="ml-4 px-3 py-1 rounded text-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600 transition">
         🌙 Karanlık
       </button>
     </div>
@@ -45,7 +42,7 @@
 </nav>
 
 <header class="bg-cover bg-center h-64 flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x400/?culture,travel');">
-  <div class="bg-black bg-opacity-50 p-6 rounded-xl text-center max-w-4xl mx-4">
+  <div class="bg-black bg-opacity-50 p-6 rounded-xl text-center">
     <h2 class="text-3xl font-bold mb-2">Dünyayı Kültürle Keşfet</h2>
     <p class="text-lg">Tarihi yapılar, oteller, haritalar ve daha fazlası burada.</p>
   </div>
@@ -54,15 +51,32 @@
 <section id="culture" class="p-6 max-w-6xl mx-auto">
   <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Kültürel Alanlar</h3>
   <div class="grid md:grid-cols-3 gap-6" id="culture-list">
-    <!-- Dinamik içerik gelecek -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Ayasofya</h4>
+      <p class="text-sm">Bizans ve Osmanlı mimarisinin eşsiz birleşimi. 6. yüzyılda inşa edildi.</p>
+      <a href="https://tr.wikipedia.org/wiki/Ayasofya" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Kolezyum</h4>
+      <p class="text-sm">Antik Roma’nın en ikonik yapısı. MÖ 80 yılında açıldı.</p>
+      <a href="https://tr.wikipedia.org/wiki/Kolezyum" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Petra Antik Kenti</h4>
+      <p class="text-sm">Ürdün'de kayalara oyulmuş eşsiz bir şehir. UNESCO mirasıdır.</p>
+      <a href="https://tr.wikipedia.org/wiki/Petra" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
+    </div>
   </div>
 </section>
 
 <section id="gallery" class="p-6 bg-white dark:bg-gray-800">
   <div class="max-w-6xl mx-auto">
     <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Galeri</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-list">
-      <!-- Dinamik resimler buraya -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="https://source.unsplash.com/400x300/?istanbul,mosque" alt="Ayasofya" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?colosseum,rome" alt="Kolezyum" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?petra,jordan" alt="Petra" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?travel,world" alt="Genel" class="rounded shadow" />
     </div>
   </div>
 </section>
@@ -70,8 +84,22 @@
 <section id="hotels" class="p-6 bg-gray-100 dark:bg-gray-900">
   <div class="max-w-6xl mx-auto">
     <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Oteller & Rezervasyon</h3>
-    <div class="grid md:grid-cols-3 gap-6" id="hotels-list">
-      <!-- Dinamik içerik -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Sultanahmet Palace Hotel</h4>
+        <p class="text-sm">Ayasofya’ya 2 dk yürüme mesafesinde. Mükemmel manzara.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Hotel Forum Roma</h4>
+        <p class="text-sm">Kolezyum’a 5 dakika uzaklıkta. Roma’nın kalbinde.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Petra Guest House Hotel</h4>
+        <p class="text-sm">Petra Antik Kenti'nin hemen girişinde yer alır.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
     </div>
   </div>
 </section>
@@ -79,8 +107,7 @@
 <section id="car-rental" class="p-6 bg-white dark:bg-gray-800 mt-8">
   <div class="max-w-6xl mx-auto">
     <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Araç Rezervasyonu</h3>
-    <div class="grid md:grid-cols-3 gap-6" id="cars-list">
-      <!-- Sabit araç listesi -->
+    <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-white dark:bg-gray-700 p-4 rounded shadow">
         <h4 class="font-bold text-xl mb-2">Economy Car</h4>
         <p class="text-sm">Ekonomik, yakıt tasarruflu, küçük araç.</p>
@@ -97,15 +124,6 @@
         <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Konum tabanlı öneri -->
-<section class="p-6 bg-gray-100 dark:bg-gray-900">
-  <div class="max-w-6xl mx-auto">
-    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Yakındaki Kültürel Yerler</h3>
-    <p class="text-sm mb-4 text-gray-600 dark:text-gray-300">Tarayıcınızdan konum alınarak size en yakın tarihi yerler listelenir.</p>
-    <ul id="nearby-places" class="space-y-3 text-sm text-gray-800 dark:text-gray-200"></ul>
   </div>
 </section>
 
@@ -133,12 +151,32 @@
 </footer>
 
 <script>
-  // Tema değiştirici
+  function initMap() {
+    const locations = [
+      { title: "Ayasofya", position: { lat: 41.0086, lng: 28.9802 } },
+      { title: "Kolezyum", position: { lat: 41.8902, lng: 12.4922 } },
+      { title: "Petra", position: { lat: 30.3285, lng: 35.4444 } }
+    ];
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2,
+      center: { lat: 20, lng: 0 }
+    });
+    locations.forEach(loc => {
+      new google.maps.Marker({
+        position: loc.position,
+        map: map,
+        title: loc.title
+      });
+    });
+  }
+
   const toggle = document.getElementById("toggleDark");
   const body = document.body;
+
   function updateToggleText(isDark) {
     toggle.textContent = isDark ? "🌞 Aydınlık" : "🌙 Karanlık";
   }
+
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
@@ -146,175 +184,13 @@
   } else {
     updateToggleText(false);
   }
+
   toggle.addEventListener("click", () => {
     const isDark = body.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
     updateToggleText(isDark);
   });
 
-  // Sabit veri (örnek veriler)
-  const places = [
-    {
-      name: "istanbul",
-      cultural: [
-        { title: "Ayasofya", desc: "Bizans ve Osmanlı mimarisinin eşsiz birleşimi. 6. yüzyılda inşa edildi.", link: "https://tr.wikipedia.org/wiki/Ayasofya", lat: 41.0086, lng: 28.9802, img: "https://source.unsplash.com/400x300/?istanbul,mosque" }
-      ],
-      hotels: [
-        { title: "Sultanahmet Palace Hotel", desc: "Ayasofya’ya 2 dk yürüme mesafesinde." }
-      ]
-    },
-    {
-      name: "roma",
-      cultural: [
-        { title: "Kolezyum", desc: "Antik Roma’nın en ikonik yapısı. MÖ 80 yılında açıldı.", link: "https://tr.wikipedia.org/wiki/Kolezyum", lat: 41.8902, lng: 12.4922, img: "https://source.unsplash.com/400x300/?colosseum,rome" }
-      ],
-      hotels: [
-        { title: "Hotel Forum Roma", desc: "Kolezyum’a 5 dakika uzaklıkta." }
-      ]
-    },
-    {
-      name: "petra",
-      cultural: [
-        { title: "Petra Antik Kenti", desc: "Ürdün'de kayalara oyulmuş eşsiz bir şehir. UNESCO mirasıdır.", link: "https://tr.wikipedia.org/wiki/Petra", lat: 30.3285, lng: 35.4444, img: "https://source.unsplash.com/400x300/?petra,jordan" }
-      ],
-      hotels: [
-        { title: "Petra Guest House Hotel", desc: "Petra Antik Kenti'nin hemen girişinde yer alır." }
-      ]
-    }
-  ];
-
-  // Dinamik içerik yükleme (varsayılan: İstanbul)
-  function loadPlaceData(placeName) {
-    const place = places.find(p => p.name === placeName.toLowerCase());
-    if (!place) {
-      alert("Aramanızla ilgili bir sonuç bulunamadı.");
-      return;
-    }
-
-    // Kültürel alanlar
-    const cultureList = document.getElementById("culture-list");
-    cultureList.innerHTML = place.cultural.map(c => `
-      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
-        <h4 class="font-bold text-xl mb-2">${c.title}</h4>
-        <p class="text-sm mb-2">${c.desc}</p>
-        <a href="${c.link}" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
-      </div>
-    `).join("");
-
-    // Galeri
-    const galleryList = document.getElementById("gallery-list");
-    galleryList.innerHTML = place.cultural.map(c => `
-      <img src="${c.img}" alt="${c.title}" class="rounded shadow" />
-    `).join("");
-
-    // Oteller
-    const hotelsList = document.getElementById("hotels-list");
-    hotelsList.innerHTML = place.hotels.map(h => `
-      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
-        <h4 class="font-bold text-xl mb-2">${h.title}</h4>
-        <p class="text-sm mb-2">${h.desc}</p>
-        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
-      </div>
-    `).join("");
-
-    // Harita markerları güncelle
-    updateMapMarkers(place.cultural);
-  }
-
-  // Harita ve markerlar
-  let map;
-  let markers = [];
-  function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 5,
-      center: { lat: 41.0, lng: 29.0 }, // İstanbul varsayılan
-    });
-    loadPlaceData("istanbul"); // Varsayılan içerik
-    getNearbyPlaces();
-  }
-
-  function updateMapMarkers(locations) {
-    // Önce tüm markerları kaldır
-    markers.forEach(m => m.setMap(null));
-    markers = [];
-
-    // Yeni markerlar ekle
-    locations.forEach(loc => {
-      const marker = new google.maps.Marker({
-        position: { lat: loc.lat, lng: loc.lng },
-        map: map,
-        title: loc.title
-      });
-      markers.push(marker);
-    });
-
-    // Haritayı ilk marker etrafına kaydır
-    if (locations.length > 0) {
-      const bounds = new google.maps.LatLngBounds();
-      locations.forEach(loc => bounds.extend(new google.maps.LatLng(loc.lat, loc.lng)));
-      map.fitBounds(bounds);
-    }
-  }
-
-  // Arama formu
   document.getElementById("searchForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const query = document.getElementById("searchInput").value.trim().toLowerCase();
-    if (!query) {
-      alert("Lütfen aramak istediğiniz yer, kültür veya otel adını girin.");
-      return;
-    }
-    loadPlaceData(query);
-  });
-
-  // Konum tabanlı yakın yerler önerisi
-  function getNearbyPlaces() {
-    const nearbyList = document.getElementById("nearby-places");
-    if (!navigator.geolocation) {
-      nearbyList.innerHTML = "<li>Tarayıcınız konum servisini desteklemiyor.</li>";
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(position => {
-      const userLat = position.coords.latitude;
-      const userLng = position.coords.longitude;
-
-      // Basit mesafe hesaplama (Haversine formülü kullanabiliriz ama bu örnek basit)
-      function distance(lat1, lng1, lat2, lng2) {
-        const toRad = deg => deg * Math.PI / 180;
-        const R = 6371; // km
-        const dLat = toRad(lat2 - lat1);
-        const dLng = toRad(lng2 - lng1);
-        const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
-      }
-
-      // Tüm kültürel yerleri birleştir
-      let allCultural = [];
-      places.forEach(p => {
-        p.cultural.forEach(c => {
-          allCultural.push({...c, placeName: p.name});
-        });
-      });
-
-      // Mesafeye göre sırala ve en yakın 5 taneyi al
-      allCultural.sort((a,b) => distance(userLat,userLng,a.lat,a.lng) - distance(userLat,userLng,b.lat,b.lng));
-      const nearest = allCultural.slice(0,5);
-
-      // Listele
-      nearbyList.innerHTML = nearest.map(loc => `
-        <li>
-          <strong>${loc.title}</strong> (${loc.placeName.charAt(0).toUpperCase()+loc.placeName.slice(1)}) - Yaklaşık ${(distance(userLat,userLng,loc.lat,loc.lng)).toFixed(2)} km uzaklıkta
-          <br/>
-          <a href="${loc.link}" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Detaylı Bilgi</a>
-        </li>
-      `).join("");
-    }, () => {
-      nearbyList.innerHTML = "<li>Konum bilgisine izin verilmedi veya alınamadı.</li>";
-    });
-  }
-
-</script>
-
-</body>
-</html>
+    const query = document.getElement
