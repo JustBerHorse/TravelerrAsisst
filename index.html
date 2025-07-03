@@ -194,3 +194,11 @@
   document.getElementById("searchForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const query = document.getElement
+<!-- Konum tabanlı öneri sistemi -->
+<section class="p-6 bg-gray-100 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Yakındaki Kültürel Yerler</h3>
+    <p class="text-sm mb-4 text-gray-600 dark:text-gray-300">Tarayıcınızdan konum alınarak size en yakın tarihi yerler listelenir.</p>
+    <ul id="nearby-places" class="space-y-3 text-sm text-gray-800 dark:text-gray-200"></ul>
+  </div>
+</section>
